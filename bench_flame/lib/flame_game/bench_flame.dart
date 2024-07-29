@@ -53,7 +53,7 @@ class BenchFlame extends FlameGame<BenchWorld> with HasCollisionDetection {
     decBtn.position.setValues(250, 300);
     camera.viewport.add(decBtn);
 
-    final fpsComponent = FpsTextComponent(decimalPlaces: 2);
-    camera.viewport.add(fpsComponent);
+    // final fpsComponent = FpsTextComponent(decimalPlaces: 2);
+    // camera.viewport.add(fpsComponent);
   }
 }
