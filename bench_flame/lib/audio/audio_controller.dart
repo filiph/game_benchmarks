@@ -35,6 +35,9 @@ class AudioController {
         _musicPlayer = AudioPlayer(playerId: 'musicPlayer'),
         _playlist = Queue.of(List<Song>.of(songs)..shuffle()) {
     _musicPlayer.onPlayerComplete.listen(_handleSongFinished);
+    unawaited(AudioCache.instance
+        .load('music/${_playlist.first.filename}')
+        .then((_) => _log.info(() => 'Preloaded music.')));
   }
 
   /// Makes sure the audio controller is listening to changes
