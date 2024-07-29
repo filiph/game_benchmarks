@@ -31,8 +31,33 @@
 
   <title>bench_flame</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    #flutter_target {
+      width: 960px;
+      height: 600px;
+      border-radius: 0;
+    }
+  </style>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <article>
+    <div id="flutter_target"></div>
+  </article>
+
+  <script>
+    {{flutter_js}}
+    {{flutter_build_config}}
+
+    const target = document.getElementById('flutter_target');
+    _flutter.loader.load({
+      onEntrypointLoaded: async function (engineInitializer) {
+        const appRunner = await engineInitializer.initializeEngine({
+          hostElement: target,
+        });
+        await appRunner.runApp();
+      }
+    });
+  </script>
 </body>
 </html>
