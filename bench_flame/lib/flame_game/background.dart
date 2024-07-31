@@ -13,8 +13,7 @@ class Background extends PositionComponent with HasGameRef {
 
   @override
   Future<void> onLoad() async {
-    final sprite =
-        await Sprite.load('mount-rainier-peak-public-domain-jpg.jpg');
+    final sprite = await Sprite.load('wood-background.jpg');
 
     _minScale = Vector2.all(1.2 * gameRef.size.x / sprite.originalSize.x);
 
