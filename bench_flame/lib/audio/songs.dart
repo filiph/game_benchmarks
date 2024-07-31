@@ -1,5 +1,5 @@
 const List<Song> songs = [
-  Song('Majestic.mp3', 'Majestic (4.9MB)', artist: 'Unknown'),
+  Song('f-minor.mp3', 'F Minor', artist: 'Philip Age'),
 ];
 
 class Song {
