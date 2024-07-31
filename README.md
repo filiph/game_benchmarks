@@ -1,25 +1,25 @@
 Benchmarking game engines with a particular focus on 2D casual gaming.
 
-Includes the following game engines:
+Currently includes the following game engines:
 
+* Flutter (including Flame)
 * Unity
 * Godot
-* Flutter (including Flame)
 
 **Full disclosure:** This project was created by a member of the Flutter game development community (@filiph), so it's geared towards comparing Flutter to popular game engines. When relevant, expect more focus on comparing Flutter to other engines than other engines between themselves. 
 
-Much effort has been spent to make the comparison fair (it would be useless otherwise). If you see technical or methodological issues, please contribute!
+Much effort has been spent to make the comparison fair (the exercise would be useless otherwise). If you see technical or methodological issues, please contribute!
 
 ## Philosophy
 
-Benchmarks are clearly useful for decision-making and goal-setting but can become less than useful (i.e. actually _harmful_) in certain circumstances. For example, it is easy to over-index on a specific benchmark and instead of optimizing for real-life scenario, optimize for the arbitrary code in the benchmark. It's also common for us people to cling to the datapoints provided by benchmarks even though the picture tends to be much more complex, _precisely_ because the datapoints let us pretend that the picture is actually simple.
+Benchmarks are clearly useful for decision-making and goal-setting but can become less than useful (i.e. actually _harmful_) in certain circumstances. For example, it is easy to over-index on a specific benchmark and instead of optimizing for real-life scenarios, optimize for the arbitrary code in the benchmark. It's also common for us people to cling to the datapoints provided by benchmarks even though the picture tends to be much more complex. We do this _precisely_ because the datapoints let us pretend that the picture is actually simple.
 
 For this reason, 
 
-1. The context and focus of this benchmark is explicitly stated so that people can't confuse it with a general-purpose comparison. We are interested in comparing Flutter (and Flame) with popular game engines, especially in the context of 2D games like Slay the Spire, Balatro, Peglin, Undertale, Papers Please, or TIS-100.
-2. It is forbidden to optimize the code of the implementations beyond what's vaguely defined as “best practices.” In other words, while it's expected that the implementation for each game engine will not have outright performance bugs, it is _not okay_ to apply wizard-level optimizations that only a few software engineers would think of. This is not a race to see who can implement it better, it's a benchmark.
-3. It is highly discouraged to use measurements from this benchmark as a sole datapoint. Always augment with more context. Remember Goodhart’s Law.
-4. It is highly encouraged to read the fine print. To make some measurements, one needs to make a number of subtle judgement calls. These are documented, and often quite important in their effect on the numbers.
+1. The context and focus of this benchmark is explicitly stated so that people can't confuse it with a general-purpose comparison. We are interested in comparing Flutter (and Flame) with popular game engines, especially in the context of 2D games like Slay the Spire, Gardenscapes, Balatro, Text Express, Undertale, 2048, Papers Please, or Sudoku.
+2. It is forbidden to optimize the code of the implementations beyond what's vaguely defined as “best practices.” In other words, while it's expected that the implementation for each game engine will not have outright performance bugs, it is _not okay_ to apply wizard-level optimizations that only a few software engineers would think of. This is not a race to see who can implement a game better, it's a comparison of game engines. Let's assume most game developers are good at their craft but not the top 1%.
+3. It is highly discouraged to use measurements from this benchmark as the sole grounds to decision making. Always augment with more context. Remember Goodhart’s Law.
+4. It is highly _encouraged_ to read the fine print. To make some measurements, one needs to make a number of subtle judgement calls. These are documented, and often quite important in their effect on the numbers.
 
 
 ## Methodology
@@ -29,8 +29,8 @@ The same "game" is implemented in all benchmarked game engines. The implementati
 Here are a few characteristics of 2D games (and especially _casual_ 2D games) that seem relevant for benchmarking:
 
 - There's always movement. Almost no game screen is fully static.
-- Backgrounds are artistic, which almost always translates to large bitmap image files being shown.
-- There's music. Which means that sizeable audio files need to be bundled with the game, and one needs to be loaded on start.
+- Backgrounds are artistic, which almost always translates to a large bitmap image file being shown.
+- There's music, which means that sizeable audio files need to be bundled with the game, and one needs to be loaded at start.
 - Many subgenres (but not all) track a significant number of entities and update them every frame.
 - There's almost always an overlay with some UI elements.
 - Casual games try to start as soon as possible (in contrast with many hardcore games, which are meant for focused, uninterrupted play sessions, and can therefore take their time on startup).
