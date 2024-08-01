@@ -1,6 +1,7 @@
 import 'package:bench_flame/flame_game/background.dart';
 import 'package:bench_flame/flame_game/callback_button.dart';
 import 'package:bench_flame/flame_game/disappearing_button.dart';
+import 'package:bench_flame/flame_game/logo.dart';
 import 'package:bench_flame/settings/settings.dart';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
@@ -8,7 +9,7 @@ import 'package:flame/game.dart';
 import '../audio/audio_controller.dart';
 import 'bench_world.dart';
 
-class BenchFlame extends FlameGame<BenchWorld> with HasCollisionDetection {
+class BenchFlame extends FlameGame<BenchWorld> {
   BenchFlame({
     required this.audioController,
     required this.settingsController,
@@ -27,9 +28,11 @@ class BenchFlame extends FlameGame<BenchWorld> with HasCollisionDetection {
 
     camera.viewfinder.position = Vector2(size.x / 2, size.y / 2);
 
+    camera.viewport.add(Logo());
+
     for (var i = 0; i < 20; i++) {
       final disBtn = DisappearingButton('Button ${i + 1}');
-      disBtn.position.setValues(500.0, 50.0 + 30 * i);
+      disBtn.position.setValues(700.0, 30.0 + 22 * i);
       camera.viewport.add(disBtn);
     }
 
@@ -52,8 +55,5 @@ class BenchFlame extends FlameGame<BenchWorld> with HasCollisionDetection {
     );
     decBtn.position.setValues(250, 300);
     camera.viewport.add(decBtn);
-
-    // final fpsComponent = FpsTextComponent(decimalPlaces: 2);
-    // camera.viewport.add(fpsComponent);
   }
 }
