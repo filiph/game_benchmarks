@@ -1,0 +1,28 @@
+name: bench_flutter
+description: A vanilla Flutter benchmark project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.4.4 <4.0.0'
+
+dependencies:
+  audioplayers: ^6.0.0
+  flutter:
+    sdk: flutter
+  logging: ^1.2.0
+  provider: ^6.1.2
+  vector_math: ^2.1.4
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/music/
