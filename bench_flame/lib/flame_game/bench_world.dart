@@ -4,8 +4,11 @@ import 'package:bench_flame/flame_game/bench_flame.dart';
 import 'package:bench_flame/flame_game/wanderer.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:logging/logging.dart';
 
 class BenchWorld extends World with TapCallbacks, HasGameReference {
+  static final Logger _log = Logger('BenchWorld');
+
   static const int batchSize = 100;
 
   final List<PairedWanderer> wanderers = [];
@@ -54,6 +57,11 @@ class BenchWorld extends World with TapCallbacks, HasGameReference {
   }
 
   void removeBatch() {
+    if (wanderers.isEmpty) {
+      _log.info('Cannot remove from empty list.');
+      return;
+    }
+
     for (var i = wanderers.length - batchSize; i < wanderers.length; i++) {
       wanderers[i].removeFromParent();
     }
