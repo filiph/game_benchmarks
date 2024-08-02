@@ -19,13 +19,6 @@ public class PairedWanderer : MonoBehaviour
         transform.position = new Vector3(position.x, position.y, 0);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         // We're not using RigidBody2D here because we don't need it.

@@ -6,19 +6,12 @@ public class MusicPlay : MonoBehaviour
 {
     public AudioSource music;
 
-    // Start is called before the first frame update
     void Start()
     {
         music.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void toggleAudioOn()
+    public void ToggleAudioOn()
     {
         if (music.isPlaying)
         {

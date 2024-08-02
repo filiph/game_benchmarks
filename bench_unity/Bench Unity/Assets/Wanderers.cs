@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class Wanderers : MonoBehaviour
 {
-    public const int batchSize = 1000;
+    public const int batchSize = 100;
 
     public PairedWanderer prefab;
 
     public Vector2 worldSize;
 
     List<PairedWanderer> wanderers = new List<PairedWanderer>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void AddBatch()
     {
@@ -47,6 +35,12 @@ public class Wanderers : MonoBehaviour
 
     public void RemoveBatch()
     {
+        if (wanderers.Count == 0)
+        {
+            Debug.Log("Cannot remove from empty list.");
+            return;
+        }
+
         for (var i = wanderers.Count - batchSize; i < wanderers.Count; i++)
         {
             Destroy(wanderers[i].gameObject);
