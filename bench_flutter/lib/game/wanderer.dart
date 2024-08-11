@@ -11,8 +11,6 @@ class PairedWanderer {
 
   final Size worldSize;
 
-  // TODO add image sprite
-
   PairedWanderer({
     required this.position,
     required this.velocity,
