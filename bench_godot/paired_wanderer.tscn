@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bucw8hwijvrnr"]
+
+[ext_resource type="Script" path="res://paired_wanderer.gd" id="1_1lfv3"]
+[ext_resource type="Texture2D" uid="uid://pf6duyttjxs2" path="res://sprite.png" id="2_m7urn"]
+
+[node name="PairedWanderer" type="Node2D"]
+script = ExtResource("1_1lfv3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m7urn")

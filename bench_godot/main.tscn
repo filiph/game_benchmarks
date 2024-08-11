@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqvmkdeew4kc"]
+
+[ext_resource type="Texture2D" uid="uid://bqff3nw248sye" path="res://wood-background.jpg" id="1_idxvt"]
+[ext_resource type="Script" path="res://wanderers.gd" id="1_xasmu"]
+[ext_resource type="Script" path="res://initialize_ui.gd" id="1_xutv0"]
+[ext_resource type="AudioStream" uid="uid://bfgtju1mybuyf" path="res://f-minor.mp3" id="2_afafi"]
+[ext_resource type="Script" path="res://music.gd" id="3_nff2m"]
+[ext_resource type="Texture2D" uid="uid://ce1vnskl7dcft" path="res://logo.png" id="4_uvauk"]
+[ext_resource type="Script" path="res://wobble.gd" id="5_k6im7"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(480, 300)
+scale = Vector2(0.278009, 0.278009)
+texture = ExtResource("1_idxvt")
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("1_xasmu")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xutv0")
+
+[node name="Audio toggle button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 137.0
+offset_right = 341.0
+offset_bottom = 168.0
+text = "Audio on/off
+"
+flat = true
+
+[node name="Add batch button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 269.0
+offset_right = 349.0
+offset_bottom = 300.0
+text = "+100 entities"
+flat = true
+
+[node name="Remove batch button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 308.0
+offset_right = 346.0
+offset_bottom = 339.0
+text = "-100 entities"
+flat = true
+
+[node name="Logo" type="Node2D" parent="UI"]
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Logo"]
+position = Vector2(344.092, 75.75)
+scale = Vector2(0.363532, 0.363532)
+texture = ExtResource("4_uvauk")
+script = ExtResource("5_k6im7")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_afafi")
+autoplay = true
+script = ExtResource("3_nff2m")
+
+[connection signal="pressed" from="UI/Audio toggle button" to="Music" method="_on_audio_toggle_button_pressed"]
+[connection signal="button_down" from="UI/Add batch button" to="World" method="add_batch"]
+[connection signal="button_down" from="UI/Remove batch button" to="World" method="remove_batch"]

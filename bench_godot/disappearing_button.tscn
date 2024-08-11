@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmtpwv3gi4kdk"]
+
+[ext_resource type="Script" path="res://disappear.gd" id="1_b06w7"]
+
+[node name="DisappearingButton" type="Button"]
+offset_left = 558.0
+offset_top = 28.0
+offset_right = 633.0
+offset_bottom = 59.0
+action_mode = 0
+text = "Button 1"
+flat = true
+script = ExtResource("1_b06w7")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
