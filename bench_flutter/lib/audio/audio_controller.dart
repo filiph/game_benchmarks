@@ -3,6 +3,7 @@ import 'dart:collection';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:bench_flutter/app_lifecycle/app_lifecycle.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logging/logging.dart';
 
@@ -27,7 +28,7 @@ class AudioController {
     unawaited(
         AudioCache.instance.load('music/${_playlist.first.filename}').then((_) {
       _log.info(() => 'Preloaded music.');
-      if (_audioOn) {
+      if (_audioOn && !kIsWeb) {
         _playCurrentSongInPlaylist();
       }
     }));
