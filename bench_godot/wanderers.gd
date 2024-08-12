@@ -10,7 +10,7 @@ func _ready():
 
 func add_batch():
 	assert(batch_size % 2 == 0)
-	var world_size = get_tree().root.size
+	var world_size = Vector2(960, 600) # get_tree().root.size
 	var paired_wanderer_resource = load("res://paired_wanderer.tscn")
 	for i in range(batch_size / 2):
 		var a := paired_wanderer_resource.instantiate() as PairedWanderer
