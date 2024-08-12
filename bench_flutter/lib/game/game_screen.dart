@@ -1,6 +1,7 @@
 import 'package:bench_flutter/audio/audio_controller.dart';
 import 'package:bench_flutter/game/button.dart';
 import 'package:bench_flutter/game/game_world.dart';
+import 'package:bench_flutter/game/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,10 +23,11 @@ class GameScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const GameWorldWidget(),
+            const LogoWidget(),
             const _DisappearingButtons(),
             Positioned(
               left: 250,
-              top: 100,
+              top: 150,
               child: Button(
                 label: 'Audio on/off',
                 onPressed: () {
