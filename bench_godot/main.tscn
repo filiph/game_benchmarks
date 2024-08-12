@@ -69,3 +69,4 @@ script = ExtResource("3_nff2m")
 [connection signal="pressed" from="UI/Audio toggle button" to="Music" method="_on_audio_toggle_button_pressed"]
 [connection signal="button_down" from="UI/Add batch button" to="World" method="add_batch"]
 [connection signal="button_down" from="UI/Remove batch button" to="World" method="remove_batch"]
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]
