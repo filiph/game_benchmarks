@@ -20,9 +20,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=960
 window/size/viewport_height=600
+window/size/mode=3
 window/stretch/mode="viewport"
+window/handheld/orientation=4
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
