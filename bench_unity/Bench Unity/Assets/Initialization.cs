@@ -10,6 +10,10 @@ public class Initialization : MonoBehaviour
 
     void Start()
     {
+        // On mobile, Unity defaults to only 30 FPS. This resets that to 60 FPS
+        // so that the benchmark is comparable.
+        Application.targetFrameRate = 60;
+
         CreateDisappearingButtons();
     }
 
