@@ -23,7 +23,7 @@ class GameScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const GameWorldWidget(),
-            const LogoWidget(),
+            const RepaintBoundary(child: LogoWidget()),
             const _DisappearingButtons(),
             Positioned(
               left: 250,
